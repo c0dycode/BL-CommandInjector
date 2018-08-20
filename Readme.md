@@ -19,6 +19,7 @@ you can also use/look at mopioid's [BLIO](https://github.com/mopioid/BLIO).
 - Get LevelTransitionData (From Map -> To Map) (Currently in Testing)
 
 # Projects utilizing CommandInjector
+- [BorderlandsReadOnlyDetector](https://github.com/FromDarkHell/BorderlandsReadOnlyDetector)
 - You tell me :P
 
 # Having issues?
@@ -28,7 +29,7 @@ If you believe CommandInjector caused the game to crash, check if you have a "Co
 # Special thanks to
 - mopioid for testing, working with and enjoying it
 - FromDarkHell for testing and having issues :BabyRage:
- 
+Â 
 # Support
 If you enjoy my work and would like to support me, feel free to do so here :)
 
