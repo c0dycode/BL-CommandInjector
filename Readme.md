@@ -20,6 +20,7 @@ you can also use/look at mopioid's [BLIO](https://github.com/mopioid/BLIO).
 
 # Projects utilizing CommandInjector
 - [BorderlandsReadOnlyDetector](https://github.com/FromDarkHell/BorderlandsReadOnlyDetector)
+- [Borderlands-Chatbot](https://github.com/mopioid/Borderlands-Chatbot)
 - You tell me :P
 
 # Having issues?
