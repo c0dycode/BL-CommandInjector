@@ -24,6 +24,10 @@ you can also use/look at mopioid's [BLIO](https://github.com/mopioid/BLIO).
 - [Borderlands Commander](https://github.com/mopioid/Borderlands-Commander)
 - You tell me :P
 
+# Changelog
+* 26th August, 2018
+- Fixed :tm: an issue which would cause "Borderlands Commander" feedback messages, for example, to be displayed from someone else in Coop
+
 # Having issues?
 Feel free to open up a new issue. 
 If you believe CommandInjector caused the game to crash, check if you have a "CommandInjector.dmp" in your Win32-folder and if so, send it to me.
