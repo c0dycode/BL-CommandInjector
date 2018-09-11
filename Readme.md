@@ -1,6 +1,10 @@
 # NOTE
 This is a beta for now. It is possible that it causes crashes, bugs or similiar. I'm not responsible if you lose progress in your game or anything else :BabyRage:
 
+# WARNING
+If you are a Destiny 2 player and you want to use this together with "Borderlands Commander", make ABSOLUTELY sure you close Borderlands Commander BEFORE launching D2. We have received reports that Borderlands Commander running while playing D2 will result in a ban from D2.
+
+We are trying to reach out to Bungie to hopefully get this resolved!
 
 # About
 CommandInjector is a little NamedPipe-based "API" DLL-Plugin written in C++ for Borderlands 2 and Borderlands TPS.
