@@ -26,6 +26,7 @@ you can also use/look at mopioid's [BLIO](https://github.com/mopioid/BLIO).
 - [BorderlandsReadOnlyDetector](https://github.com/FromDarkHell/BorderlandsReadOnlyDetector)
 - [Borderlands-Chatbot](https://github.com/mopioid/Borderlands-Chatbot)
 - [Borderlands Commander](https://github.com/mopioid/Borderlands-Commander)
+- [Borderlands SuperHot](https://github.com/blacktavius/BLSuperHot)
 - You tell me :P
 
 # Changelog
