@@ -14,6 +14,9 @@ This is only useful to developers. This is **NOT** going to do anything on it's 
 If you want to know how to utilize it from C#, look at the Project in this repo, the "Needed Code.txt" in the Zip-File or 
 you can also use/look at mopioid's [BLIO](https://github.com/mopioid/BLIO).
 
+# Known Issues
+- If you use multiple tools that utilize CommandInjector at the same time & they send commands basically at the same time, there's a chance that one of the commands is "eaten" and you'll need to wait 30 seconds for the event to timeout. I'm trying to figure out a way to fix this without making usage more difficult.
+
 # Requirements
 - [PluginLoader](https://github.com/c0dycode/BorderlandsPluginLoader)
 
@@ -26,6 +29,7 @@ you can also use/look at mopioid's [BLIO](https://github.com/mopioid/BLIO).
 - [BorderlandsReadOnlyDetector](https://github.com/FromDarkHell/BorderlandsReadOnlyDetector)
 - [Borderlands-Chatbot](https://github.com/mopioid/Borderlands-Chatbot)
 - [Borderlands Commander](https://github.com/mopioid/Borderlands-Commander)
+- [Borderlands SuperHot](https://github.com/blacktavius/BLSuperHot)
 - You tell me :P
 
 # Changelog
