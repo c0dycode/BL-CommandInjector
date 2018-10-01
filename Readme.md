@@ -26,10 +26,11 @@ you can also use/look at mopioid's [BLIO](https://github.com/mopioid/BLIO).
 - Get LevelTransitionData (From Map -> To Map) (Currently in Testing)
 
 # Projects utilizing CommandInjector
-- [BorderlandsReadOnlyDetector](https://github.com/FromDarkHell/BorderlandsReadOnlyDetector)
-- [Borderlands-Chatbot](https://github.com/mopioid/Borderlands-Chatbot)
+- [Borderlands ReadOnly Detector](https://github.com/FromDarkHell/BorderlandsReadOnlyDetector)
+- [Borderlands Chatbot](https://github.com/mopioid/Borderlands-Chatbot)
 - [Borderlands Commander](https://github.com/mopioid/Borderlands-Commander)
 - [Borderlands SuperHot](https://github.com/blacktavius/BLSuperHot)
+- [Borderlands Twitch Integration](https://github.com/mopioid/Borderlands-Twitch-Integration)
 - You tell me :P
 
 # Changelog
