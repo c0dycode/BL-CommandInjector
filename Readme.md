@@ -31,6 +31,7 @@ you can also use/look at mopioid's [BLIO](https://github.com/mopioid/BLIO).
 - [Borderlands Commander](https://github.com/mopioid/Borderlands-Commander)
 - [Borderlands SuperHot](https://github.com/blacktavius/BLSuperHot)
 - [Borderlands Twitch Integration](https://github.com/mopioid/Borderlands-Twitch-Integration)
+- [BorderlandsDiscordRP](https://github.com/FromDarkHell/BorderlandsDiscordRP)
 - You tell me :P
 
 # Changelog
