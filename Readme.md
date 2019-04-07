@@ -1,10 +1,11 @@
+# Developement status:
+Apart from potential compatability issue fixes, this Plugin won't receive any more updates.
+
 # Borderlands UHD Update (4K Texture Update)
 Since the update from April 3rd broke pretty much all the mods, you'll have to use an updated version.
 If you're still using the old version, those files should still work.
 For the UHD-Update you'll need to either delete or rename the old "CommandInjector.dll" and use the "CommandInjector(TPS)-UHD.dll" instead.
 Everything else, like Borderlands Commander should not require any changes!
-
-For now, consider this a BETA!
 
 # NOTE
 This is a beta for now. It is possible that it causes crashes, bugs or similiar. I'm not responsible if you lose progress in your game or anything else :BabyRage:
