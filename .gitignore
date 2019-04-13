@@ -260,3 +260,6 @@ paket-files/
 __pycache__/
 *.pyc
 /BorderlandsCommandInjectorExample/Needed Code.txt
+/Borderlands Dumper
+/BorderlandsCommandInjectorExample/Classes/ConsoleDump.cs
+/BorderlandsDumpingTool

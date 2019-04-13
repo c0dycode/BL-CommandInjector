@@ -32,6 +32,9 @@
             this.textBoxCommand = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.rtbEvents = new System.Windows.Forms.RichTextBox();
+            this.lblModuleRunning = new System.Windows.Forms.Label();
+            this.lblPluginLoaderStatus = new System.Windows.Forms.Label();
+            this.lblLineCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSend
@@ -68,17 +71,46 @@
             this.rtbEvents.TabIndex = 4;
             this.rtbEvents.Text = "";
             // 
+            // lblModuleRunning
+            // 
+            this.lblModuleRunning.AutoSize = true;
+            this.lblModuleRunning.Location = new System.Drawing.Point(354, 29);
+            this.lblModuleRunning.Name = "lblModuleRunning";
+            this.lblModuleRunning.Size = new System.Drawing.Size(123, 13);
+            this.lblModuleRunning.TabIndex = 5;
+            this.lblModuleRunning.Text = "CommandInjector status:";
+            // 
+            // lblPluginLoaderStatus
+            // 
+            this.lblPluginLoaderStatus.AutoSize = true;
+            this.lblPluginLoaderStatus.Location = new System.Drawing.Point(354, 4);
+            this.lblPluginLoaderStatus.Name = "lblPluginLoaderStatus";
+            this.lblPluginLoaderStatus.Size = new System.Drawing.Size(103, 13);
+            this.lblPluginLoaderStatus.TabIndex = 6;
+            this.lblPluginLoaderStatus.Text = "PluginLoader status:";
+            // 
+            // lblLineCount
+            // 
+            this.lblLineCount.AutoSize = true;
+            this.lblLineCount.Location = new System.Drawing.Point(13, 4);
+            this.lblLineCount.Name = "lblLineCount";
+            this.lblLineCount.Size = new System.Drawing.Size(0, 13);
+            this.lblLineCount.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 894);
+            this.Controls.Add(this.lblLineCount);
+            this.Controls.Add(this.lblPluginLoaderStatus);
+            this.Controls.Add(this.lblModuleRunning);
             this.Controls.Add(this.rtbEvents);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBoxCommand);
             this.Controls.Add(this.btnSend);
             this.Name = "Form1";
-            this.Text = "Borderlands 2 Command Injector";
+            this.Text = "Borderlands 2 & TPS Command Injector";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -91,6 +123,9 @@
         private System.Windows.Forms.TextBox textBoxCommand;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox rtbEvents;
+        private System.Windows.Forms.Label lblModuleRunning;
+        private System.Windows.Forms.Label lblPluginLoaderStatus;
+        private System.Windows.Forms.Label lblLineCount;
     }
 }
 
