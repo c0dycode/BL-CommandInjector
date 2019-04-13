@@ -71,7 +71,7 @@ namespace BorderlandsCommandInjectorExample
                 if (processes.Length > 0)
                 {
                     var proc = processes.FirstOrDefault();
-                    var path = proc.MainModule.FileName.Replace(proc.MainModule.ModuleName, "");
+                    var path = proc.MainModule.FileName.Replace(proc.MainModule.ModuleName, ""); 
 
                     isPLuginLoaderInstalled = File.Exists(Path.Combine(path, "ddraw.dll"));
                     isCommandInjectorInstalled = File.Exists(Path.Combine(path, "Plugins", proc.MainModule.ModuleName.Contains("Borderlands2") ? "CommandInjector.dll" : "CommandInjectorTPS.dll"));
