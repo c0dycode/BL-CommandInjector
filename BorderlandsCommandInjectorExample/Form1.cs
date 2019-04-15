@@ -7,6 +7,10 @@ using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
+using System.Linq;
+using System.Timers;
+using BorderlandsCommandInjectorExample.Classes;
+using System.Collections;
 
 namespace BorderlandsCommandInjectorExample
 {
@@ -17,6 +21,12 @@ namespace BorderlandsCommandInjectorExample
         private List<string> responseList = new List<string>();
         private List<string> eventList = new List<string>();
         private BackgroundWorker BW = new BackgroundWorker();
+        private BackgroundWorker verifyModuleWorker = new BackgroundWorker();
+
+        private bool isPLuginLoaderInstalled = false;
+        private bool isCommandInjectorInstalled = false;
+
+        private System.Timers.Timer processCheckTimer = new System.Timers.Timer();
 
         private string commandText { get; set; }
 
@@ -28,6 +38,118 @@ namespace BorderlandsCommandInjectorExample
             BW.DoWork += BW_DoWork;
             BW.RunWorkerCompleted += BW_RunWorkerCompleted;
             BW.RunWorkerAsync();
+
+            verifyModuleWorker.DoWork += VerifyModuleWorker_DoWork;
+            verifyModuleWorker.RunWorkerAsync();
+
+            processCheckTimer.Interval = 2000;
+            processCheckTimer.Elapsed += ProcessCheckTimer_Elapsed;
+            processCheckTimer.AutoReset = true;
+            processCheckTimer.Enabled = true;
+        }
+
+        /// <summary>
+        /// Checking every two seconds whether either of the games + CommandInjector is running to update the status in the UI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ProcessCheckTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            verifyModuleWorker.RunWorkerAsync();
+        }
+
+        private void VerifyModuleWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                Process[] processes = Process.GetProcessesByName("Borderlands2");
+                if (processes.Length == 0)
+                    processes = Process.GetProcessesByName("BorderlandsPreSequel");
+
+                // Check if either of both games is running and if PluginLoader has been loaded!
+                // && processes.FirstOrDefault().Modules.Cast<ProcessModule>().ToList().Any(x => x.FileName.Contains("ddraw"))
+                if (processes.Length > 0)
+                {
+                    var proc = processes.FirstOrDefault();
+                    var path = proc.MainModule.FileName.Replace(proc.MainModule.ModuleName, ""); 
+
+                    isPLuginLoaderInstalled = File.Exists(Path.Combine(path, "ddraw.dll"));
+                    isCommandInjectorInstalled = File.Exists(Path.Combine(path, "Plugins", proc.MainModule.ModuleName.Contains("Borderlands2") ? "CommandInjector.dll" : "CommandInjectorTPS.dll"));
+                    if (!isCommandInjectorInstalled)
+                        isCommandInjectorInstalled = File.Exists(Path.Combine(path, "Plugins", proc.MainModule.ModuleName.Contains("Borderlands2") ? "CommandInjector-UHD.dll" : "CommandInjectorTPS-UHD.dll"));
+
+                    this.lblPluginLoaderStatus.Invoke((MethodInvoker)delegate
+                    {
+                        if (isPLuginLoaderInstalled && processes.FirstOrDefault().Modules.Cast<ProcessModule>().ToList().Any(x => x.FileName.Contains("ddraw")))
+                        {
+                            this.lblPluginLoaderStatus.ForeColor = System.Drawing.Color.Green;
+                            this.lblPluginLoaderStatus.Text = "PluginLoader is installed and seems to have been loaded by the game!";
+                        }
+                        if (isPLuginLoaderInstalled && !processes.FirstOrDefault().Modules.Cast<ProcessModule>().ToList().Any(x => x.FileName.Contains("ddraw")))
+                        {
+                            this.lblPluginLoaderStatus.ForeColor = System.Drawing.Color.Red;
+                            this.lblPluginLoaderStatus.Text = "PluginLoader installed, but not loaded by the game!";
+                        }
+                        if (!isPLuginLoaderInstalled)
+                        {
+                            this.lblPluginLoaderStatus.ForeColor = System.Drawing.Color.Red;
+                            this.lblPluginLoaderStatus.Text = "PluginLoader does not seem to be installed!";
+                        }
+                    });
+
+                    this.lblModuleRunning.Invoke((MethodInvoker)delegate
+                    {
+                        if (isCommandInjectorInstalled && processes.FirstOrDefault().Modules.Cast<ProcessModule>().ToList().Any(x => x.FileName.Contains("CommandInjector")))
+                        {
+                            this.lblModuleRunning.ForeColor = System.Drawing.Color.Green;
+                            this.lblModuleRunning.Text = "CommandInjector is installed and seems to have been loaded by the game!";
+                        }
+                        if (isCommandInjectorInstalled && !processes.FirstOrDefault().Modules.Cast<ProcessModule>().ToList().Any(x => x.FileName.Contains("CommandInjector")))
+                        {
+                            this.lblModuleRunning.ForeColor = System.Drawing.Color.Red;
+                            this.lblModuleRunning.Text = "CommandInjector installed, but not loaded by the game!";
+                        }
+                        if (!isCommandInjectorInstalled)
+                        {
+                            this.lblModuleRunning.ForeColor = System.Drawing.Color.Red;
+                            this.lblModuleRunning.Text = "CommandInjector does not seem to be installed!";
+                        }
+                    });
+                }
+
+                // Check if either of both games is running and if CommandInjector has been loaded!
+                //if (processes.Length > 0 && processes.FirstOrDefault().Modules.Cast<ProcessModule>().ToList().Any(x => x.FileName.Contains("CommandInjector")))
+                //{
+
+                //}
+
+                // Check if either of both games is running and if CommandInjector has not been loaded!
+                //if (processes.Length > 0 && !processes.FirstOrDefault().Modules.Cast<ProcessModule>().ToList().Any(x => x.FileName.Contains("CommandInjector")))
+                //{
+                //    this.lblModuleRunning.Invoke((MethodInvoker)delegate
+                //    {
+                //        this.lblModuleRunning.ForeColor = System.Drawing.Color.Red;
+                //        this.lblModuleRunning.Text = "CommandInjector not loaded by the game! Verify install!";
+                //    });
+                //}
+
+                // If neither of both games is running
+                else if (processes.Length == 0)
+                {
+                    this.lblModuleRunning.Invoke((MethodInvoker)delegate
+                    {
+                        this.lblModuleRunning.ForeColor = System.Drawing.Color.Red;
+                        this.lblModuleRunning.Text = "Neither BL2 nor TPS seem to be running!";
+                    });
+
+                    this.lblPluginLoaderStatus.Invoke((MethodInvoker)delegate
+                    {
+                        this.lblPluginLoaderStatus.ForeColor = System.Drawing.Color.Red;
+                        this.lblPluginLoaderStatus.Text = "Neither BL2 nor TPS seem to be running!";
+                    });
+                }
+            }
+            catch (Win32Exception) { }
         }
 
         private void BW_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -134,6 +256,7 @@ namespace BorderlandsCommandInjectorExample
 
                         // No "using" this time, since otherwise we get an exception, since the pipe closes automatically when the Stream closes/disposes
                         var reader = new StreamReader(pipe);
+                        
 
                         string check = "";
 
@@ -147,16 +270,10 @@ namespace BorderlandsCommandInjectorExample
                                 responseList.Add(check);
                         }
 
-                        // Refresh the DataSource in the UI
-                        if (responseList.Count > 0)
-                        {
-                            //this.rtbEvents.DataSource = null;
-                            //this.listBoxEvents.DataSource = responseList;
-                        }
-                        richTextBox1.ResetText();
+                        this.richTextBox1.Invoke((MethodInvoker)delegate { this.richTextBox1.ResetText(); });
                         foreach (var line in responseList)
                         {
-                            richTextBox1.AppendText(line + "\r\n");
+                            this.richTextBox1.Invoke((MethodInvoker)delegate { richTextBox1.AppendText(line + "\r\n"); });
                         }
                     }
                 }
@@ -170,7 +287,7 @@ namespace BorderlandsCommandInjectorExample
                 }
             }
             // Clear the Command TextBox in the UI
-            this.textBoxCommand.Text = "";
+            this.textBoxCommand.Invoke((MethodInvoker)delegate { this.textBoxCommand.Text = ""; });
         }
     }
 }
