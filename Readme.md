@@ -1,14 +1,11 @@
 # Developement status:
-Apart from potential compatability issue fixes, this Plugin won't receive any more updates.
+This Plugin won't receive any more updates.
 
 # Borderlands UHD Update (4K Texture Update)
 Since the update from April 3rd broke pretty much all the mods, you'll have to use an updated version.
 If you're still using the old version, those files should still work.
 For the UHD-Update you'll need to either delete or rename the old "CommandInjector.dll" and use the "CommandInjector(TPS)-UHD.dll" instead.
 Everything else, like Borderlands Commander should not require any changes!
-
-# NOTE
-This is a beta for now. It is possible that it causes crashes, bugs or similiar. I'm not responsible if you lose progress in your game or anything else :BabyRage:
 
 # WARNING
 If you are a Destiny 2 player and you want to use this together with "Borderlands Commander", make ABSOLUTELY sure you close Borderlands Commander BEFORE launching D2. We have received reports that Borderlands Commander running while playing D2 will result in a ban from D2.
@@ -27,7 +24,7 @@ you can also use/look at mopioid's [BLIO](https://github.com/mopioid/BLIO).
 - If you use multiple tools that utilize CommandInjector at the same time & they send commands basically at the same time, there's a chance that one of the commands is "eaten" and you'll need to wait 30 seconds for the event to timeout. I'm trying to figure out a way to fix this without making usage more difficult.
 
 # Requirements
-- [PluginLoader](https://github.com/c0dycode/BorderlandsPluginLoader)
+- [DLLPluginLoader](https://github.com/c0dycode/DLLPluginLoader)
 
 
 # Current Features
