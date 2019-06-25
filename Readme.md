@@ -2,11 +2,14 @@
 This Plugin won't receive any more updates.
 
 # Which DLL do I have to use?
-- If you're playing on an old version of the game (before the UHD Update was released) you use the DLL without "UHD" in the name. Possibly for some Speedrunnners
+- If you're playing on an old version of the game (before the UHD Update was released) you use the DLL without "UHD" in the name. Possibly interesting for some Speedrunnners
 
 - Since the UHD Update (whether you use the Textures or not) you obviously need the UHD one.
 
 ** ONLY USE ONE OF THEM ** 
+
+# HELP MY GAME WON'T START
+- Update the Plugins and use the correct version for the correct game. Read above.
 
 # WARNING
 If you are a Destiny 2 player and you want to use this together with "Borderlands Commander", make ABSOLUTELY sure you close Borderlands Commander BEFORE launching D2. We have received reports that Borderlands Commander running while playing D2 will result in a ban from D2.
