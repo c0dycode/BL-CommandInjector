@@ -1,11 +1,12 @@
 # Developement status:
 This Plugin won't receive any more updates.
 
-# Borderlands UHD Update (4K Texture Update)
-Since the update from April 3rd broke pretty much all the mods, you'll have to use an updated version.
-If you're still using the old version, those files should still work.
-For the UHD-Update you'll need to either delete or rename the old "CommandInjector.dll" and use the "CommandInjector(TPS)-UHD.dll" instead.
-Everything else, like Borderlands Commander should not require any changes!
+# Which DLL do I have to use?
+- If you're playing on an old version of the game (before the UHD Update was released) you use the DLL without "UHD" in the name. Possibly for some Speedrunnners
+
+- Since the UHD Update (whether you use the Textures or not) you obviously need the UHD one.
+
+** ONLY USE ONE OF THEM ** 
 
 # WARNING
 If you are a Destiny 2 player and you want to use this together with "Borderlands Commander", make ABSOLUTELY sure you close Borderlands Commander BEFORE launching D2. We have received reports that Borderlands Commander running while playing D2 will result in a ban from D2.
