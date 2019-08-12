@@ -29,6 +29,7 @@ you can also use/look at mopioid's [BLIO](https://github.com/mopioid/BLIO).
 
 # Requirements
 - [DLLPluginLoader](https://github.com/c0dycode/DLLPluginLoader)
+- [vcredist 2015/2017/2019 x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)
 
 
 # Current Features
